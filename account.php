@@ -1,12 +1,34 @@
 
 <?php include_once 'userheader.php' ?>
-	<!---header--->
+
+<?php
+include_once 'user.php';
+if(isset($_POST['submit']))
+
+{
+$name=$_POST['name'];
+$email=$_POST['email'];
+$mobile=$_POST['mobile'];
+$password=$_POST['password'];
+$security_question=$_POST['security_question'];
+$security_answer=$_POST['security_answer'];
+$obj=new user();
+$obj->userSignup($name, $email, $mobile, $security_question, $security_answer, $password);
+    
+ echo "<script>alert('succesfully login')</script>";
+ echo "<script>window.location.href='login.php'</script>";
+ 
+
+  }
+  
+?>
+<!---header--->
 	<div class="content">
 <!-- registration -->
     <div class="main-1">
         <div class="container">
             <div class="register">
-                <form action="account.php" method="post" onsubmit="return(validateForm());"> 
+                <form action="" method="post" onsubmit="return(validateForm());"> 
                     <div class="register-top-grid">
                     <h3>personal information</h3>
                         <h5 class="error-msg">* mandatory fields</h5>
@@ -20,7 +42,7 @@
                         </div>
                         <div>
                             <span>Security Question<label>*</label></span>
-                            <select id="security-question" name="securityquestion"> 
+                            <select id="security-question" name="security_question"> 
                                 <option value="Please select security question">Please select security question</option>
                                 <option value="What was your childhood nickname?">What was your childhood nickname?</option>
                                 <option value="What is the name of your favourite childhood friend?">What is the name of your favourite childhood friend?</option>
@@ -35,7 +57,7 @@
                         </div>
                         <div id="answer-signup">
                             <span>ANSWER<label>*</label></span>
-                            <input type="text" name="answer" id="answer"> 
+                            <input type="text" name="security_answer" id="answer"> 
                         </div>
                         <div class="clearfix"> </div>
                         <a class="news-letter" href="#">

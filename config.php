@@ -14,6 +14,6 @@ class DB_con
 		}
     }
 }
-$obj = new DB_con();
+//$obj = new DB_con();
 
     ?>

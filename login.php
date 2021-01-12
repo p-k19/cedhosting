@@ -1,5 +1,17 @@
 
 <?php include_once 'header.php' ?>
+<?php 
+include_once 'user.php';
+if(isset($_POST['submit']))
+
+{
+ echo $email=$_POST['email'];
+ echo $password=$_POST['password'];
+
+$obj1=new user();
+$obj1->login($email,$password);
+}
+?>
 	
 		<!---login--->
 			<div class="content">
@@ -12,17 +24,18 @@
 									 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
 									 <a class="acount-btn" href="account.php">Create an Account</a>
 								</div>
+							
 								<div class="col-md-6 login-right">
 									<h3>registered</h3>
 									<p>If you have an account with us, please log in.</p>
-									<form>
+									<form action="" method='post'>
 									  <div>
 										<span>Email Address<label>*</label></span>
-										<input type="text"> 
+										<input type="text" name="email"> 
 									  </div>
 									  <div>
 										<span>Password<label>*</label></span>
-										<input type="password"> 
+										<input type="password" name="password"> 
 									  </div>
 									  <a class="forgot" href="#">Forgot Your Password?</a>
 									  <input type="submit" value="Login">
