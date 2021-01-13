@@ -1,15 +1,9 @@
+<?php include_once 'user.php'?>
 <!DOCTYPE HTML>
 <html>
 <head>
 <title>Ced Hosting</title>
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,24 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- datatable css -->
   <link rel="stylesheet" 
   href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-  <!-- datatable css-->
-  <script src="js/modernizr.custom.97074.js"></script>
-<script src="js/jquery.chocolat.js"></script>
-<link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen">
-<!--lightboxfiles-->
-<script type="text/javascript">
-	$(function() {
-	$('.team a').Chocolat();
-	});
-</script>	
-<script type="text/javascript" src="js/jquery.hoverdir.js"></script>	
-						<script type="text/javascript">
-							$(function() {
-								$(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
-							});
-						</script>						
-<!--script-->
-</head>
+  </head>
 <body>
 <!---header--->
 <div class="header">
@@ -78,26 +55,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class=active><a href="index.php">Home <i class="sr-only">(current)</i></a></li>
-                        <li class=><a href="about.php">About</a></li>
-                        <li class=active><a href="services.php">Services</a></li>
-                        <li class="dropdown" >
-                            <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Hosting<i class="caret"></i></a>
-                            <ul class="dropdown-menu" >
-                            <li ><a href="catpage.php?id=24">CMS Hosting</a>
-                           </li>
-                           <li ><a href="catpage.php?id=25">WordPress Hosting</a>
-                        </li><li ><a href="catpage.php?id=26">Mac Hosting</a></li>
-                        <li ><a href="catpage.php?id=27">windows hosting</a></li>
-                        <li ><a href="catpage.php?id=40">Linux Hosting</a></li>
-                        <li ><a href="catpage.php?id=44">Unix1.0</a></li>
-                        <li ><a href="catpage.php?id=46">bghdfhgfd</a></li>
-                        <li ><a href="catpage.php?id=47">bvgcb</a></li>                         
-                       </ul>			
-                        </li>
+                         
+                 <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class=active><a href="index.php">Home <i class="sr-only">(current)</i></a></li>
+                            <li class=><a href="about.php">About</a></li>
+                            <li class=><a href="services.php">Services</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
+                                <ul class="dropdown-menu">
+                                <?php
+                                include 'product.php';
+                                            $navobj = new product();
+                                            $res = $navobj->hosting();
+                                            $row = $res->num_rows;
+                                            for($i=0;$i<$row;$i++){
+                                                   $resultobj = $res->fetch_assoc();
+                                                   ?>
+                <li><a href="<?php echo $resultobj['link'];?>"> <?php  echo $resultobj['prod_name'];?></a></li>
+                                                 
+<?php
+                                            }
+
+
+
+                                                            
+                                            ?>
+                <!-- <li><a href="cmshosting.php">CMS Hosting</a></li>
+                                    <li><a href="wordpresshosting.php">WordPress Hosting</a></li>
+                                    <li><a href="catpage.php?id=26">Mac Hosting</a></li>
+                                    <li><a href="windowshosting.php">windows hosting</a></li>
+                                    <li><a href="linuxhosting.php">Linux Hosting</a></li> -->
+                            
+                                </ul>
+                            </li>
+                
                         <li class=><a href="pricing.php">Pricing</a></li>
                         <li class=><a href="blog.php">Blog</a></li>
                         <li class=><a href="contact.php">Contact</a></li>

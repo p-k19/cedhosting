@@ -2,14 +2,14 @@
 <?php include_once 'header.php' ?>
 <?php 
 include_once 'user.php';
-if(isset($_POST['submit']))
+if(isset($_POST['login']))
 
 {
- echo $email=$_POST['email'];
- echo $password=$_POST['password'];
+  $email=$_POST['email'];
+  $password=$_POST['password'];
 
-$obj1=new user();
-$obj1->login($email,$password);
+$loginobj=new user();
+$loginobj->login($email,$password);
 }
 ?>
 	
@@ -28,7 +28,7 @@ $obj1->login($email,$password);
 								<div class="col-md-6 login-right">
 									<h3>registered</h3>
 									<p>If you have an account with us, please log in.</p>
-									<form action="" method='post'>
+									<form action="" method='POST'>
 									  <div>
 										<span>Email Address<label>*</label></span>
 										<input type="text" name="email"> 
@@ -38,7 +38,7 @@ $obj1->login($email,$password);
 										<input type="password" name="password"> 
 									  </div>
 									  <a class="forgot" href="#">Forgot Your Password?</a>
-									  <input type="submit" value="Login">
+									  <input type="submit" value="Login" name='login'>
 									</form>
 								</div>	
 								<div class="clearfix"> </div>

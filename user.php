@@ -34,20 +34,36 @@ public function userSignup($name, $email, $mobile, $security_question, $security
     
   }
 
-public function login($email,$password)
-{
- $sql="SELECT is_admin FROM `tbl_user` where email='$email' password='$password'";
- if($sql==0)
- {
-   echo "<script>window.location href='user.php'</script>";
- }
- else{
- echo "<script>window.location href='admin.php'</script>";
- }
-
+  public function login($email,$password)
+  {
+  $sql="SELECT * FROM `tbl_user` where email='$email' AND password='$password'";
+  $result = $this->con->query($sql);
+  
+  $row = $result->fetch_assoc();
+  
+  
+  if( $row['is_admin']=='1')
+  {
+  echo "<script>alert('admin')</script>";
+  
+  }
+  elseif($row['is_admin'] =='0'){
+  echo "<script>alert('user')</script>";
+  }
+  else{
+    echo "<script>alert('Invalid user')</script>"; 
+  }
+  
+  }
+ public  function header_hosting(){
+    $sql="SELECT prod_name  FROM tbl_product WHERE prod_parent_id ='1' AND prod_available ='1'";
+  $result = $this->con->query($sql);
+  
+  $row = $result->fetch_assoc();
+  }
 }
 
-}
+
 ?>
 
 
