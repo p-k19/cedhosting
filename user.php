@@ -2,20 +2,27 @@
 <?php
  class user
 {  
-
+public $email;
+public $name;
+public $mobile;
+public $email_aproved;
+public $phone_approved;
+public $active;
+public $is_admin;
+public $password;
+public $security_answer;
+public $security_question;
 public $con;
   
                                     
-     
-    public function __construct()
+     public function __construct()
     {
         $dbcon=new Dbcon();
         $this->con=$dbcon->createConnection();
-
-         }
+       }
     
 
-public function userSignup($name, $email, $mobile, $security_question, $security_answer, $password)
+   public function userSignup($name, $email, $mobile, $security_question, $security_answer, $password)
     {
         $sql="INSERT INTO `tbl_user` (`email`,`name`,`mobile`,`email_approved`,
         `phone_approved`,`active`,`is_admin`,`password`,
@@ -28,10 +35,6 @@ public function userSignup($name, $email, $mobile, $security_question, $security
         else{
         echo 'Not inserted';  // return false;
     }
-
-
-    
-    
   }
 
   public function login($email,$password)
@@ -44,14 +47,18 @@ public function userSignup($name, $email, $mobile, $security_question, $security
   
   if( $row['is_admin']=='1')
   {
-  echo "<script>alert('admin')</script>";
+
+    return 1;
+    //echo "<script></script>";
   
   }
   elseif($row['is_admin'] =='0'){
-  echo "<script>alert('user')</script>";
+    return 0;
+  //echo "<script>alert('user')</script>";
   }
   else{
-    echo "<script>alert('Invalid user')</script>"; 
+    return -1;
+    //echo "<script>alert('Invalid user')</script>"; 
   }
   
   }

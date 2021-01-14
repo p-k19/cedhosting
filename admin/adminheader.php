@@ -7,6 +7,7 @@
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
   <title>Admin Dashboard</title>
+  <!-- <script src="https://cdn.tiny.cloud/1/lprafp2hagao2e2x76o3qtas0wuw23nstlfucay3fllovd27/tinymce/5/tinymce.min.js" referrerpolicy="origin"> -->
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
