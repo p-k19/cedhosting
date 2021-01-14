@@ -45,18 +45,18 @@ class product
              
          }
 
-        public  function get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku, $webSpacing,$bandwidth,$language,$mailbox,$freeDomain){ 
-            $datae = array( 
-                'productname' => $enterProduct, 
-                'url' => $branch, 
-                'monthly' => $enterMonthly, 
-                'annual' => $enterAnnual, 
-                'sku' => $sku, 
-                'webspace' => $webSpacing, 
-                'bandwidth' => $bandwidth, 
-                'language' => $language, 
-                'mail' => $mailbox, 
-                'domain' => $freeDomain, 
+        public  function get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku, $webSpacing,$bandwidth,$language,$freeDomain){ 
+              $datae = array( 
+                 'productname' => $enterProduct, 
+                 'url' => $branch, 
+                 'monthly' => $enterMonthly, 
+                 'annual' => $enterAnnual, 
+                 'sku' => $sku, 
+                 'webspace' => $webSpacing, 
+                 'bandwidth' => $bandwidth, 
+                 'language' => $language, 
+                 'mail' => $mailbox, 
+                 'domain' => $freeDomain, 
 
             ); 
             return json_encode($datae); 

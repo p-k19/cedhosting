@@ -4,18 +4,19 @@ include_once 'adminheader.php';
 if(isset($_POST['submit']))
 {
   include_once '../product.php';
+
   $enterProduct=$_POST['enterProduct'];
   $branch=$_POST['pageUrl'];
-  $enterMonthly=$_POST['q11_enterMonthly'];
+   $enterMonthly=$_POST['q11_enterMonthly'];
   $enterAnnual=$_POST['q12_enterAnnual'];
   $sku=$_POST['q13_sku'];
-   $webSpacing=$_POST['q16_webSpacein'];
-   $bandwidth=$_POST['q17_bandwidthin'];
-  // $language=$_POST['q18_freeDomain'];
-   $mailbox=$_POST['q19_language'];
-   $freeDomain=$_POST['q18_freeDomain'];
+  $bandwidth=$_POST['q17_bandwidthin'];
+  $language=$_POST['q19_language'];
+  $freeDomain=$_POST['q18_freeDomain'];
+  $webSpacing=$_POST['webSpacing'];
+ 
   $json=new product();
-  $res=$json->get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku, $webSpacing,$bandwidth,$language,$mailbox,$freeDomain);
+  $res=$json->get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku,$webSpacing,$bandwidth,$language,$freeDomain);
   echo "<script>alert($res)</script>";
 }
 ?><head>
@@ -23,6 +24,7 @@ if(isset($_POST['submit']))
 </head>
   
   <!-- Main content -->
+  
   <div class="main-content" id="panel">
     <!-- Topnav -->
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
@@ -260,10 +262,7 @@ if(isset($_POST['submit']))
       </div>
     </nav>
 
-<form class="jotform-form" action="https://submit.jotform.com/submit/203442420701036/" method="post" name="form_203442420701036" id="203442420701036" accept-charset="utf-8" autocomplete="on">
-  <input type="hidden" name="formID" value="203442420701036" />
-  <input type="hidden" id="JWTContainer" value="" />
-  <input type="hidden" id="cardinalOrderNumber" value="" />
+<form class="" action="" method="post" >
   <div role="main" class="form-all">
     <ul class="form-section page-section">
       <li id="cid_1" class="form-input-wide" data-type="control_head">
@@ -291,11 +290,11 @@ if(isset($_POST['submit']))
             
           <?php include_once '../product.php';
 
-$navobj = new product();
-$res = $navobj->hosting();
-$row = $res->num_rows;
-for($i=0;$i<$row;$i++){
-       $resultobj = $res->fetch_assoc();
+                 $navobj = new product();
+                 $res = $navobj->hosting();
+                 $row = $res->num_rows;
+                 for($i=0;$i<$row;$i++){
+                 $resultobj = $res->fetch_assoc();
        ?>
             <option value="<?php echo $resultobj["prod_parent_id"];?>"><?php echo $resultobj["prod_name"]; ?></option>
             
@@ -310,8 +309,8 @@ for($i=0;$i<$row;$i++){
             *
           </span>
         </label>
-        <div id="cid_4" class="form-input-wide jf-required" data-layout="half">
-          <input type="text" id="input_4" name="enterProduct" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_4"  />
+        <div id="cid_4" class="form-input-wide " data-layout="half">
+          <input type="text" id="input_4" name="enterProduct" data-type="input-textbox" class="form-textbox validate[s]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_4"  />
         </div>
       </li>
       <li class="form-line" data-type="control_textbox" id="id_5">
@@ -465,9 +464,9 @@ for($i=0;$i<$row;$i++){
       <li class="form-line" data-type="control_button" id="id_2">
         <div id="cid_2" class="form-input-wide" data-layout="full">
           <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
-            <button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
-              Create Now
-            </button>
+            <input id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons   value="Create Now">
+              
+            
           </div>
         </div>
       </li>
@@ -477,24 +476,11 @@ for($i=0;$i<$row;$i++){
       </li>
     </ul>
   </div>
-  <!-- <script>
-  JotForm.showJotFormPowered = "new_footer";
-  </script>
-  <script>
-  JotForm.poweredByText = "Powered by JotForm";
-  </script>
-  <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="203442420701036" />
-  <script type="text/javascript">
-  var all_spc = document.querySelectorAll("form[id='203442420701036'] .si" + "mple" + "_spc");
-for (var i = 0; i < all_spc.length; i++)
-{
-  all_spc[i].value = "203442420701036-203442420701036";
-}
-  </script> -->
+  
+
   <div class="formFooter-heightMask">
   </div>
  </body>
-</html>
 
   
 </body>
