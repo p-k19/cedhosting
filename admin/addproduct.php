@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
 
   $enterProduct=$_POST['enterProduct'];
   $branch=$_POST['pageUrl'];
-   $enterMonthly=$_POST['q11_enterMonthly'];
+  $enterMonthly=$_POST['q11_enterMonthly'];
   $enterAnnual=$_POST['q12_enterAnnual'];
   $sku=$_POST['q13_sku'];
   $bandwidth=$_POST['q17_bandwidthin'];
@@ -19,13 +19,9 @@ if(isset($_POST['submit']))
   $res=$json->get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku,$webSpacing,$bandwidth,$language,$freeDomain);
   echo "<script>alert($res)</script>";
 }
-?><head>
- 
-</head>
+?>
   
-  <!-- Main content -->
-  
-  <div class="main-content" id="panel">
+  <!-- Main content --><div class="main-content" id="panel">
     <!-- Topnav -->
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
       <div class="container-fluid">
@@ -262,7 +258,10 @@ if(isset($_POST['submit']))
       </div>
     </nav>
 
-<form class="" action="" method="post" >
+    <form action="" method="post" style="margin-left: 250px; margin-top:30px; text-decoration:none;" >
+  <input type="hidden" name="formID" value="203442420701036" />
+  <input type="hidden" id="JWTContainer" value="" />
+  <input type="hidden" id="cardinalOrderNumber" value="" />
   <div role="main" class="form-all">
     <ul class="form-section page-section">
       <li id="cid_1" class="form-input-wide" data-type="control_head">
@@ -276,32 +275,25 @@ if(isset($_POST['submit']))
             </div>
           </div>
         </div>
-      </li>
-      <li class="form-line jf-required" data-type="control_dropdown" id="id_3">
-        <label class="form-label form-label-top form-label-auto" id="label_3" for="input_3">
-          Select Product Category
-          <span class="form-required">
-            *
-          </span>
-        </label>
-        <div id="cid_3" class="form-input-wide jf-required" data-layout="half">
-          <select class="form-dropdown validate[required]" id="input_3" name="q3_selectProduct" style="width:310px" data-component="dropdown" required="" aria-labelledby="label_3">
-         
-            
-          <?php include_once '../product.php';
+      </li> 
 
-                 $navobj = new product();
-                 $res = $navobj->hosting();
-                 $row = $res->num_rows;
-                 for($i=0;$i<$row;$i++){
-                 $resultobj = $res->fetch_assoc();
-       ?>
-            <option value="<?php echo $resultobj["prod_parent_id"];?>"><?php echo $resultobj["prod_name"]; ?></option>
-            
-              <?php }?>
-          </select>
-        </div>
-      </li>
+                <select class="form-dropdown validate (required)" id="selectproduct" name="selectproduct" style="width:310px" data-component="dropdown" area-labelledby="label_3">
+                <?php             
+                      $navobj = new product();
+                      $res = $navobj->hosting();
+                      $row = $res->num_rows;
+                      for($i=0;$i<$row;$i++){
+                           $resultobj = $res->fetch_assoc();
+                           ?>
+        <option name="selectproduct" value="<?php echo $resultobj['id'];?>"><?php echo $resultobj['prod_name'];?> 
+            </option>
+                  <?php
+                      }                           
+                      ?>
+                </select>
+                
+                
+              
       <li class="form-line jf-required" data-type="control_textbox" id="id_4">
         <label class="form-label form-label-top form-label-auto" id="label_4" for="input_4">
           Enter Product Name
@@ -309,14 +301,14 @@ if(isset($_POST['submit']))
             *
           </span>
         </label>
-        <div id="cid_4" class="form-input-wide " data-layout="half">
-          <input type="text" id="input_4" name="enterProduct" data-type="input-textbox" class="form-textbox validate[s]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_4"  />
+        <div id="cid_4" class="form-input-wide jf-required" data-layout="half">
+          <input type="text" id="input_4" name="product" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_4" required="" />
         </div>
       </li>
       <li class="form-line" data-type="control_textbox" id="id_5">
         <label class="form-label form-label-top form-label-auto" id="label_5" for="input_5"> Page URL </label>
         <div id="cid_5" class="form-input-wide" data-layout="half">
-          <input type="text" id="input_5" name="pageUrl" data-type="input-textbox" class="form-textbox" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" />
+          <input type="text" id="input_5" name="pageurl" data-type="input-textbox" class="form-textbox" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" />
         </div>
       </li>
       <li class="form-line" data-type="control_divider" id="id_8">
@@ -346,7 +338,7 @@ if(isset($_POST['submit']))
         </label>
         <div id="cid_11" class="form-input-wide jf-required" data-layout="half">
           <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="number" id="input_11" name="q11_enterMonthly" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:310px" size="310" value="" placeholder="ex: 23" data-component="number" aria-labelledby="label_11 sublabel_input_11" required="" step="any" />
+            <input type="number" id="input_11" name="monthlyprice" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:310px" size="310" value="" placeholder="ex: 23" data-component="number" aria-labelledby="label_11 sublabel_input_11" required="" step="any" />
             <label class="form-sub-label" for="input_11" id="sublabel_input_11" style="min-height:13px" aria-hidden="false"> This would be Monthly Plan </label>
           </span>
         </div>
@@ -360,7 +352,7 @@ if(isset($_POST['submit']))
         </label>
         <div id="cid_12" class="form-input-wide jf-required" data-layout="half">
           <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="number" id="input_12" name="q12_enterAnnual" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:310px" size="310" value="" placeholder="ex: 23" data-component="number" aria-labelledby="label_12 sublabel_input_12" required="" step="any" />
+            <input type="number" id="input_12" name="annualprice" data-type="input-number" class=" form-number-input form-textbox validate[required]" style="width:310px" size="310" value="" placeholder="ex: 23" data-component="number" aria-labelledby="label_12 sublabel_input_12" required="" step="any" />
             <label class="form-sub-label" for="input_12" id="sublabel_input_12" style="min-height:13px" aria-hidden="false"> This would be Annual Price </label>
           </span>
         </div>
@@ -373,7 +365,7 @@ if(isset($_POST['submit']))
           </span>
         </label>
         <div id="cid_13" class="form-input-wide jf-required" data-layout="half">
-          <input type="text" id="input_13" name="q13_sku" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_13" required="" />
+          <input type="text" id="input_13" name="sku" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_13" required="" />
         </div>
       </li>
       <li class="form-line" data-type="control_divider" id="id_14">
@@ -400,8 +392,8 @@ if(isset($_POST['submit']))
         </label>
         <div id="cid_16" class="form-input-wide jf-required" data-layout="half">
           <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="text" id="input_16" name="q16_webSpacein" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_16 sublabel_input_16" required="" />
-            <label class="form-sub-label" for="input_16" id="sublabel_input_16" style="min-height:13px" aria-hidden="false"> Enter 0.5 for 512 MB </label>
+            <input type="text" id="webspacein"  name="webspacein" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_16 sublabel_input_16" required="" />
+            <label class="form-sub-label" for="webspacein" id="sublabel_input_16" style="min-height:13px" aria-hidden="false"> Enter 0.5 for 512 MB </label>
           </span>
         </div>
       </li>
@@ -414,7 +406,7 @@ if(isset($_POST['submit']))
         </label>
         <div id="cid_17" class="form-input-wide jf-required" data-layout="half">
           <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="text" id="input_17" name="q17_bandwidthin" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_17 sublabel_input_17" required="" />
+            <input type="text" id="input_17" name="bandwidthin" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_17 sublabel_input_17" required="" />
             <label class="form-sub-label" for="input_17" id="sublabel_input_17" style="min-height:13px" aria-hidden="false"> Enter 0.5 for 512 MB </label>
           </span>
         </div>
@@ -428,7 +420,7 @@ if(isset($_POST['submit']))
         </label>
         <div id="cid_18" class="form-input-wide jf-required" data-layout="half">
           <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="text" id="input_18" name="q18_freeDomain" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_18 sublabel_input_18" required="" />
+            <input type="text" id="input_18" name="freedomain" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_18 sublabel_input_18" required="" />
             <label class="form-sub-label" for="input_18" id="sublabel_input_18" style="min-height:13px" aria-hidden="false"> Enter 0 if no domain available in this service </label>
           </span>
         </div>
@@ -442,7 +434,7 @@ if(isset($_POST['submit']))
         </label>
         <div id="cid_19" class="form-input-wide jf-required" data-layout="half">
           <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="text" id="input_19" name="q19_language" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_19 sublabel_input_19" required="" />
+            <input type="text" id="input_19" name="language" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_19 sublabel_input_19" required="" />
             <label class="form-sub-label" for="input_19" id="sublabel_input_19" style="min-height:13px" aria-hidden="false"> Separate by (,) Ex: PHP, MySQL, MongoDB </label>
           </span>
         </div>
@@ -456,17 +448,16 @@ if(isset($_POST['submit']))
         </label>
         <div id="cid_20" class="form-input-wide jf-required" data-layout="half">
           <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="text" id="input_20" name="q20_mailbox" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_20 sublabel_input_20" required="" />
-            <label class="form-sub-label" for="input_20" id="sublabel_input_20" style="min-height:13px" aria-hidden="false"> Enter Number of mailbox will be provided, enter 0 if none </label>
+            <input type="text" id="input_20" name="mailbox" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_20 sublabel_input_20" required="" />
+            <label class="form-sub-label" for="input_20" id="sublabel_input_20" style="min-height:13px"  aria-hidden="false"> Enter Number of mailbox will be provided, enter 0 if none </label>
           </span>
         </div>
       </li>
       <li class="form-line" data-type="control_button" id="id_2">
         <div id="cid_2" class="form-input-wide" data-layout="full">
           <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
-            <input id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons   value="Create Now">
-              
-            
+            <input type="submit" value="Create Now" name="create" >
+                          
           </div>
         </div>
       </li>
@@ -477,6 +468,9 @@ if(isset($_POST['submit']))
     </ul>
   </div>
   
+ 
+</form>
+  <!---footer-->
 
   <div class="formFooter-heightMask">
   </div>

@@ -64,7 +64,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="addproduct.php">
+              <a class="nav-link" href="waste.php">
                 <i class="ni ni-pin-3 text-primary"></i>
                 <span class="nav-link-text">Add Product</span>
               </a>

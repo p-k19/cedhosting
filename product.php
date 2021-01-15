@@ -59,7 +59,11 @@ class product
                  'domain' => $freeDomain, 
 
             ); 
-            return json_encode($datae); 
+            $encode=json_encode($datae); 
+            return $encode;
+            $description=var_dump(json_decode($encode));
+
+
         } 
 
          
