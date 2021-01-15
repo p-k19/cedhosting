@@ -1,26 +1,6 @@
-<?php
- include_once 'adminheader.php' ;
- include_once '../product.php';
- 
-if(isset($_POST['submit']))
-{ 
-
-$category = $_POST['category'];
- $link = $_POST['link'];
- 
-
-$createcat = new product();
-//$createcat->catego($category,$link);
-$createcat->create_category($category,$link);
-
-
-}
-
-?>
-
-
-  <!-- Main content -->
-  <div class="main-content" id="panel">
+<?php include_once "adminheader.php"; ?>
+<!-- Main content -->
+<div class="main-content" id="panel">
     <!-- Topnav -->
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
       <div class="container-fluid">
@@ -256,119 +236,64 @@ $createcat->create_category($category,$link);
         </div>
       </div>
     </nav>
-    <!-- Header -->
-    <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="dashboard.php">Dashboards</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Default</li>
-                </ol>
-              </nav>
-            </div>
-            <div class="col-lg-6 col-5 text-right">
-              <a href="#" class="btn btn-sm btn-neutral">New</a>
-              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-            </div>
-          </div>
-          <!-- Card stats -->
-          <div class="row">
-            
-              
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Page content -->
-    <div class="container mt--8 pb-5">
-      <!-- Table -->
-      <div class="row justify-content-center">
-        <div class="col-lg-6 col-md-8">
-          <div class="card bg-secondary border-0">
-            <div class="card-header bg-transparent pb-5">
-              <div class="text-muted text-center mt-2 mb-4"><small>Create New Category</small></div>
-              <div class="text-center">
-                <a href="#" class="btn btn-neutral btn-icon mr-4">
-                  <span class="btn-inner--icon"></span>
-                  <span class="btn-inner--text">Github</span>
-                </a>
-                <a href="#" class="btn btn-neutral btn-icon">
-                  <span class="btn-inner--icon"></span>
-                  <span class="btn-inner--text">Google</span>
-                </a>
-              </div>
-            </div>
-            <div class="card-body px-lg-5 py-lg-5">
-              <div class="text-center text-muted mb-4">
-                <small></small>
-              </div>
-              <form  action="" method="POST">
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="hosting" type="text" readonly>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="category" type="text" name="category">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                    </div>
-                    <textarea name='link'></textarea>
-                  </div>
-                </div>
-               
-                <div class="row my-4">
-                  <div class="col-12">
-                    <div class="custom-control custom-control-alternative custom-checkbox">
-                      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                      <label class="custom-control-label" for="customCheckRegister">
-                        <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-center">
-                  <input type="submit" class="btn btn-primary mt-4" value='createcategory' name="createcategory">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-      
-      <!-- Footer -->
-      
-  <!-- Argon Scripts -->
+    <!-- Argon Scripts -->
   <!-- Core -->
-  
+  <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/js-cookie/js.cookie.js"></script>
+  <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <script src="https://cdn.datatables.net/rowreorder/1.2.7/css/rowReorder.dataTables.min.css"></script>
+  <!-- Optional JS -->
+  <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+  <!-- Argon JS -->
+  <script src="assets/js/argon.js?v=1.2.0"></script>
+  <?php 
+  include_once '../product.php';
+  $view=new product();
+  $viewres=$view->view();
+  //$row=$viewres->num_rows;
+//   for($i=0;$i<$row;$i++){
+    echo "<table border='0' cellspacing='5' cellpadding='5'>
+        <tbody><tr>
+            <td>Search:</td>
+            <td><input type='text' id='search' name='sea'></td>
+        </tr>
+    </tbody></table>";
+    
+  echo "<table border='1' style='width:100%' id='userTable'>
+<tr>
+<th>Product Parent ID</th>
+<th>Product Name</th>
+<th>Link</th>
+<th>Product Availabilty</th>
+<th>Product launch date </th>
+<th>Action</th>
+</tr>";
+$row=$viewres->num_rows;
+for($i=0;$i<$row;$i++){
+    $resultobj1 = $viewres->fetch_assoc();
 
-</body>
+echo "<tr>";
 
-</html>
+echo "<td>" . $resultobj1['prod_parent_id'] . "</td>";
+echo "<td>" . $resultobj1['prod_name'] . "</td>";
+echo "<td>" . $resultobj1['link'] . "</td>";
+echo "<td>" . $resultobj1['prod_available'] . "</td>";
+echo "<td>" . $resultobj1['prod_launch_date'] . "</td>";
+echo "<td>" . "<button type='button' class='btn btn-success'>EDIT</button>"."<button type='button' class='btn btn-danger'>DELETE</button>" ."</td>";
+
+echo "</tr>";
+    }
+ // }
+echo "</table>";
+?> 
+<link href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#userTable').DataTable();
+    });
+    </script>

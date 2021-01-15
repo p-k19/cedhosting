@@ -31,12 +31,15 @@ class product
          }}
 
 
-         public function create_category($name,$link){
+         public function create_category($category,$link){
              $sql2="INSERT INTO `tbl_product`(`prod_name`, `link`,`prod_parent_id`,`prod_available`,`prod_launch_date`)
-             VALUES ($name,$link,'1','1',now());";
+             VALUES ($category,$link,'1','1',now());";
              $this->connection_prod->query($sql2);
-             if($sql)
-             {
+            
+             if($sql2)
+             {   
+
+            
                  echo "<script>alert('Inserteed')</script>";
              }
              else{
@@ -74,10 +77,26 @@ class product
              }
 
             return $encode;
-            $description=var_dump(json_decode($encode));
+           echo $description=var_dump(json_decode($encode));
 
 
         } 
+
+    public function view(){
+       
+        
+        $sql4="SELECT * FROM `tbl_product` where prod_parent_id='1' And prod_available='1'";
+         $result = $this->connection_prod->query($sql4);
+         if($result->num_rows>0){
+             return $result;
+         }
+         else{
+             return false;
+         }
+
+
+
+    }
 
          
 }
