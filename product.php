@@ -45,13 +45,13 @@ class product
              
          }
 
-        public  function get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku, $webSpacing,$bandwidth,$language,$freeDomain){ 
+        public  function get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku, $webSpacing,$bandwidth,$language,$freeDomain,$mailbox){ 
               $datae = array( 
-                 'productname' => $enterProduct, 
+                 //'productname' => $enterProduct, 
                  'url' => $branch, 
-                 'monthly' => $enterMonthly, 
-                 'annual' => $enterAnnual, 
-                 'sku' => $sku, 
+                 //'monthly' => $enterMonthly, 
+                 //'annual' => $enterAnnual, 
+                 //'sku' => $sku, 
                  'webspace' => $webSpacing, 
                  'bandwidth' => $bandwidth, 
                  'language' => $language, 
@@ -59,7 +59,20 @@ class product
                  'domain' => $freeDomain, 
 
             ); 
+        
             $encode=json_encode($datae); 
+            $sql3="INSERT INTO `tbl_product_description`( `prod_id`, `description`, `mon_price`, `annual_price`, `sku`)
+             VALUES (1,'$encode','$enterMonthly','$enterAnnual','$sku')";
+
+             $this->connection_prod->query($sql3);
+             if($sql3)
+             {
+                 echo "<script>alert('Inserteed')</script>";
+             }
+             else{
+                echo "<script>alert('not Inserteed')</script>";
+             }
+
             return $encode;
             $description=var_dump(json_decode($encode));
 

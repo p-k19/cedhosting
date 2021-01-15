@@ -1,10 +1,10 @@
 <?php include_once  'adminheader.php';
 
-if(isset($_POST['submit']))
+if(isset($_POST['createnow']))
 {
   include_once '../product.php';
 
- echo  $enterProduct=$_POST['enterProduct'];
+  $enterProduct=$_POST['selectproduct'];
   $branch=$_POST['pageUrl'];
   $enterMonthly=$_POST['q11_enterMonthly'];
   $enterAnnual=$_POST['q12_enterAnnual'];
@@ -12,11 +12,12 @@ if(isset($_POST['submit']))
   $bandwidth=$_POST['q17_bandwidthin'];
   $language=$_POST['q19_language'];
   $freeDomain=$_POST['q18_freeDomain'];
-  $webSpacing=$_POST['webSpacing'];
+  $webSpacing=$_POST['webSpacein'];
+  $mailbox=$_POST['mailbox'];
  
   $json=new product();
-  $res=$json->get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku,$webSpacing,$bandwidth,$language,$freeDomain);
-  echo $res;
+  $res=$json->get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku,$webSpacing,$bandwidth,$language,$freeDomain ,$mailbox);
+ //echo $res;
 }
 
 
@@ -26,8 +27,8 @@ if(isset($_POST['submit']))
 <link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?themeRevisionID=5f7ed99c2c2c7240ba580251"/>
 <link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/payment/payment_styles.css?3.3.22245" />
 <link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/payment/payment_feature.css?3.3.22245" />
-<!-- <script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
-<script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.22245" type="text/javascript"></script>--></head>
+ <script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.22245" type="text/javascript"></script></head>
 <body>
 <form class="jotform-form" action="waste.php" method="post" name="form_203442420701036" id="203442420701036" accept-charset="utf-8" autocomplete="on">
   <input type="hidden" name="formID" value="203442420701036" />
@@ -55,8 +56,10 @@ if(isset($_POST['submit']))
           </span>
         </label>
         <div id="cid_3" class="form-input-wide jf-required" data-layout="half">
-          <select class="form-dropdown validate[required]" id="input_3" name="q3_selectProduct" style="width:310px" data-component="dropdown" required="" aria-labelledby="label_3">
-          <?php          include_once '../product.php';    
+          <select class="form-dropdown validate[required]" id="input_3" name="selectproduct" style="width:310px" data-component="dropdown" required="" aria-labelledby="label_3">
+          <?php          
+          
+          include_once '../product.php';    
                       $navobj = new product();
                       $res = $navobj->hosting();
                       $row = $res->num_rows;
@@ -79,13 +82,13 @@ if(isset($_POST['submit']))
           </span>
         </label>
         <div id="cid_4" class="form-input-wide jf-required" data-layout="half">
-          <input type="text" id="input_4" name="q4_enterProduct" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_4" required="" />
+          <input type="text" id="input_4" name="enterProduct" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_4" required="" />
         </div>
       </li>
       <li class="form-line" data-type="control_textbox" id="id_5">
         <label class="form-label form-label-top form-label-auto" id="label_5" for="input_5"> Page URL </label>
         <div id="cid_5" class="form-input-wide" data-layout="half">
-          <input type="text" id="input_5" name="q5_pageUrl" data-type="input-textbox" class="form-textbox" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" />
+          <input type="text" id="input_5" name="pageUrl" data-type="input-textbox" class="form-textbox" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_5" />
         </div>
       </li>
       <li class="form-line" data-type="control_divider" id="id_8">
@@ -169,7 +172,7 @@ if(isset($_POST['submit']))
         </label>
         <div id="cid_16" class="form-input-wide jf-required" data-layout="half">
           <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="text" id="input_16" name="q16_webSpacein" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_16 sublabel_input_16" required="" />
+            <input type="text" id="input_16" name="webSpacein" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_16 sublabel_input_16" required="" />
             <label class="form-sub-label" for="input_16" id="sublabel_input_16" style="min-height:13px" aria-hidden="false"> Enter 0.5 for 512 MB </label>
           </span>
         </div>
@@ -225,7 +228,7 @@ if(isset($_POST['submit']))
         </label>
         <div id="cid_20" class="form-input-wide jf-required" data-layout="half">
           <span class="form-sub-label-container" style="vertical-align:top">
-            <input type="text" id="input_20" name="q20_mailbox" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_20 sublabel_input_20" required="" />
+            <input type="text" id="input_20" name="mailbox" data-type="input-textbox" class="form-textbox validate[required]" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_20 sublabel_input_20" required="" />
             <label class="form-sub-label" for="input_20" id="sublabel_input_20" style="min-height:13px" aria-hidden="false"> Enter Number of mailbox will be provided, enter 0 if none </label>
           </span>
         </div>
@@ -233,7 +236,7 @@ if(isset($_POST['submit']))
       <li class="form-line" data-type="control_button" id="id_2">
         <div id="cid_2" class="form-input-wide" data-layout="full">
           <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
-            <input type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="" value="createnow"> 
+            <input type="submit"  class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="" value="createnow" name="createnow"> 
             
           </div>
         </div>
