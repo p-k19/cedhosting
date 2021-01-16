@@ -249,51 +249,108 @@
   <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="assets/js/argon.js?v=1.2.0"></script>
+  <div class="page-header">
+            <h1>Product Category</h1>
+            <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by IDs.." title="Type in a name">
+        </div>
   <?php 
-  include_once '../product.php';
+  include '../product.php';
   $view=new product();
   $viewres=$view->view();
-  //$row=$viewres->num_rows;
-//   for($i=0;$i<$row;$i++){
-    echo "<table border='0' cellspacing='5' cellpadding='5'>
-        <tbody><tr>
-            <td>Search:</td>
-            <td><input type='text' id='search' name='sea'></td>
-        </tr>
-    </tbody></table>";
+
+
+
+
+  $try = new product();
+  $me=$try->decode_data();
+  $row = $me->num_rows;
+  
+  for($i=0;$i<$row;$i++){
+    $resultobj = $me->fetch_assoc();
+    $me2=$resultobj['description'];
+   
+    $decode=json_decode($me2);
+  
+  
+  
+
+  
     
-  echo "<table border='1' style='width:100%' id='userTable'>
+  echo "<table border='1'  style='width:100%;' id='userTable'>
 <tr>
 <th>Product Parent ID</th>
 <th>Product Name</th>
 <th>Link</th>
 <th>Product Availabilty</th>
+
 <th>Product launch date </th>
+<th>SKU</th>
+<th>Product Webspace </th>
+<th>Product Bandwidth </th>
+<th>Technology Used </th>
+<th>Mail </th>
+<th>Domain </th>
+
 <th>Action</th>
 </tr>";
 $row=$viewres->num_rows;
 for($i=0;$i<$row;$i++){
     $resultobj1 = $viewres->fetch_assoc();
+   echo "<tr>";
 
-echo "<tr>";
+
+
 
 echo "<td>" . $resultobj1['prod_parent_id'] . "</td>";
 echo "<td>" . $resultobj1['prod_name'] . "</td>";
 echo "<td>" . $resultobj1['link'] . "</td>";
 echo "<td>" . $resultobj1['prod_available'] . "</td>";
 echo "<td>" . $resultobj1['prod_launch_date'] . "</td>";
+ echo "<td>" . $decode->url . "</td>";
+ echo "<td>" . $decode->webspace.  "</td>";
+ echo "<td>" . $decode->bandwidth .   "</td>";
+ echo "<td>" . $decode->language . "</td>";
+ echo "<td>" . $decode->mail.  "</td>";
+echo "<td>" .  $decode->domain .  "</td>";
 echo "<td>" . "<button type='button' class='btn btn-success'>EDIT</button>"."<button type='button' class='btn btn-danger'>DELETE</button>" ."</td>";
 
 echo "</tr>";
-    }
- // }
+          
+}
+        
 echo "</table>";
+} 
 ?> 
 <link href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+ <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script>
     $(document).ready(function() {
         $('#userTable').DataTable();
     });
-    </script>
+
+
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  
+  filter = input.value.toUpperCase();
+  
+  table = document.getElementById("userTable");
+  
+  tr = table.getElementsByTagName("tr");
+  
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[i];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+    

@@ -18,6 +18,12 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  <style>
+  .scrollit {
+    overflow:scroll;
+    height:100px;
+}
+</style>
 </head>
 
 <body>
@@ -64,13 +70,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="waste.php">
+              <a class="nav-link" href="addproduct.php">
                 <i class="ni ni-pin-3 text-primary"></i>
                 <span class="nav-link-text">Add Product</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="viewproducts.php">
+              <a class="nav-link" href="view.php">
                 <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">View Products</span>
               </a>

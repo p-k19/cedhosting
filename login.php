@@ -12,7 +12,7 @@ $loginobj=new user();
 $loginobj->login($email,$password);
 
 }
-?>
+?> 
 	
 		<!---login--->
 			<div class="content">

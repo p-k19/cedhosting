@@ -17,7 +17,7 @@ if(isset($_POST['createnow']))
  
   $json=new product();
   $res=$json->get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku,$webSpacing,$bandwidth,$language,$freeDomain ,$mailbox);
- //echo $res;
+ echo $res;
 }
 
 

@@ -1,5 +1,5 @@
-<?php
- include_once 'adminheader.php' ;
+<?php 
+include_once 'adminheader.php' ;
  include_once '../product.php';
  
 if(isset($_POST['submit']))

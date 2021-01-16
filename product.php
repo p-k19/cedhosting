@@ -50,11 +50,8 @@ class product
 
         public  function get_data($enterProduct,$branch,$enterMonthly,$enterAnnual,$sku, $webSpacing,$bandwidth,$language,$freeDomain,$mailbox){ 
               $datae = array( 
-                 //'productname' => $enterProduct, 
+                 
                  'url' => $branch, 
-                 //'monthly' => $enterMonthly, 
-                 //'annual' => $enterAnnual, 
-                 //'sku' => $sku, 
                  'webspace' => $webSpacing, 
                  'bandwidth' => $bandwidth, 
                  'language' => $language, 
@@ -63,7 +60,7 @@ class product
 
             ); 
         
-            $encode=json_encode($datae); 
+         return $encode=json_encode($datae); 
             $sql3="INSERT INTO `tbl_product_description`( `prod_id`, `description`, `mon_price`, `annual_price`, `sku`)
              VALUES (1,'$encode','$enterMonthly','$enterAnnual','$sku')";
 
@@ -76,17 +73,31 @@ class product
                 echo "<script>alert('not Inserteed')</script>";
              }
 
-            return $encode;
-           echo $description=var_dump(json_decode($encode));
+            //return $encode;
+            // $description=var_dump(json_decode($encode,true));
+            // return $description["bandwidth"];
+} 
+       public function decode_data(){
+        $sql4="SELECT description  FROM `tbl_product_description`";
+
+        return $des=$this->connection_prod->query($sql4);
+       
+
+      }
+
+        
 
 
-        } 
+
+
 
     public function view(){
        
-        
+      //         $sql4 = "SELECT `tbl_product`.*,`tbl_product_description`.* FROM tbl_product
+      // JOIN tbl_product_description ON `tbl_product`.`id` = `tbl_product_description`.`prod_id` AND prod_parent_id!=0";
+
         $sql4="SELECT * FROM `tbl_product` where prod_parent_id='1' And prod_available='1'";
-         $result = $this->connection_prod->query($sql4);
+         return $result = $this->connection_prod->query($sql4);
          if($result->num_rows>0){
              return $result;
          }

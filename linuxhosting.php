@@ -48,7 +48,7 @@
 													<li><strong>location</strong> : <img src="images/india.png"></li>
 													</ul>
 												</div>
-												<a href="#">buy now</a>
+												<a href="#" onclick='f1()' id='buynow'>buy now</a>
 											</div>
 											<div class="col-md-3 linux-price">
 												<div class="linux-top">
@@ -66,7 +66,7 @@
 													<li><strong>location</strong> : <img src="images/india.png"></li>
 													</ul>
 												</div>
-												<a href="#">buy now</a>
+												<a href="#" id='buynow6'>buy now</a>
 											</div>
 											<div class="col-md-3 linux-price">
 												<div class="linux-top">
@@ -84,7 +84,7 @@
 													<li><strong>location</strong> : <img src="images/india.png"></li>
 													</ul>
 												</div>
-												<a href="#">buy now</a>
+												<a href="#" id='buynow1'>buy now</a>
 											</div>
 											<div class="col-md-3 linux-price">
 												<div class="linux-top">
@@ -102,7 +102,7 @@
 													<li><strong>location</strong> : <img src="images/india.png"></li>
 													</ul>
 												</div>
-												<a href="#">buy now</a>
+												<a href="#" id='buynow5'>buy now</a>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -143,7 +143,7 @@
 													<li><strong>location</strong> : <img src="images/us.png"></li>
 													</ul>
 												</div>
-												<a href="#" class="us-button">buy now</a>
+												<a href="#" class="us-button" id='buynow3'>buy now</a>
 											</div>
 											<div class="col-md-3 linux-price">
 												<div class="linux-top us-top">
@@ -161,7 +161,7 @@
 													<li><strong>location</strong> : <img src="images/us.png"></li>
 													</ul>
 												</div>
-												<a href="#" class="us-button">buy now</a>
+												<a href="#" class="us-button" id='buynow2'>buy now</a>
 											</div>
 											<div class="col-md-3 linux-price">
 												<div class="linux-top us-top">
@@ -179,7 +179,7 @@
 													<li><strong>location</strong> : <img src="images/us.png"></li>
 													</ul>
 												</div>
-												<a href="#" class="us-button">buy now</a>
+												<a href="#" id="" class="us-button">buy now</a>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -278,6 +278,11 @@
 				</div>
 			<!---footer--->
 			<?php include_once 'footer.php' ?>
+			<script>$('#buynow').on('submit', function(ev) {
+        $('#my-modal').modal({
+        show: 'false'
+	});
+	</script>
 			
 </body>
 </html>
