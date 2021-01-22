@@ -48,12 +48,12 @@ public $con;
   if( $row['is_admin']=='1')
   {
 
-    return 1;
+    return 'admin';
     //echo "<script></script>";
   
   }
   elseif($row['is_admin'] =='0'){
-    return 0;
+    return 'not admin';
   //echo "<script>alert('user')</script>";
   }
   else{
@@ -69,6 +69,7 @@ public $con;
   $row = $result->fetch_assoc();
   }
 }
+
 
 
 ?>

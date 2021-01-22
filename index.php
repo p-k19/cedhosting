@@ -29,7 +29,7 @@
 						<i class="glyphicon glyphicon-cog" aria-hidden="true"></i>
 						</div>
 						<div class="brilliant-right">
-							<h4>Expert Web Design</h4>
+							<h4></h4>
 							<p>We strive to deliver the very best possible work that’s available out there, at any time. That’s how we set ourselves apart.</p>
 						</div>
 						<div class="clearfix"></div>

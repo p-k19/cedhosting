@@ -1,4 +1,7 @@
-<?php include_once 'header.php' ?>
+<?php 
+session_start();
+
+include_once 'header.php'; ?>
 		<!---singleblog--->
 				<div class="content">
 					<div class="linux-section">
@@ -40,154 +43,44 @@
 													<h5>$279 <span class="month">per month</span></h5>
 													<h6>Single Domain</h6>
 													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/india.png"></li>
+													<li><strong>Web Sapce</strong>: 1GB</li>
+													<li><strong>Bandwidth</strong>: 150</li>
+													<li><strong>Free Domain</strong>: Yes</li>
+													<li><strong>Language/Technology </strong> :Linux</li>
+													<li><strong>Mail</strong>:prince729@gmail com</me></li>
+													<li><strong>location</strong>:India</li>
 													</ul>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Buy Now</button>
 												</div>
-												<a href="#" onclick='f1()' id='buynow'>buy now</a>
+												
+
+												<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hosting Plan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Plan Subcribtion:<select><option>Annual</option><option>Monthly</option></select>
+      </div>
+      <div class="modal-footer">
+	  <button  data-dismiss="modal"><a href='#'>Back</a></button>
+        <button ><a href='cart.php'>Add To Cart</a></button></a>
+      </div>
+    </div>
+  </div>
+</div>
 											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top">
-												<h4>Advanced</h4>
-												</div>
-												<div class="linux-bottom">
-													<h5>$279 <span class="month">per month</span></h5>
-													<h6>2 Domain</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/india.png"></li>
-													</ul>
-												</div>
-												<a href="#" id='buynow6'>buy now</a>
-											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top">
-												<h4>Business</h4>
-												</div>
-												<div class="linux-bottom">
-													<h5>$279 <span class="month">per month</span></h5>
-													<h6>3 Domain</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/india.png"></li>
-													</ul>
-												</div>
-												<a href="#" id='buynow1'>buy now</a>
-											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top">
-												<h4>Pro</h4>
-												</div>
-												<div class="linux-bottom">
-													<h5>$259 <span class="month">per month</span></h5>
-													<h6>Unlimited Domains</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/india.png"></li>
-													</ul>
-												</div>
-												<a href="#" id='buynow5'>buy now</a>
-											</div>
-											<div class="clearfix"></div>
+										
+											
 										</div>
 									</div>
-									<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-										<div class="linux-prices">
-											<div class="col-md-3 linux-price">
-												<div class="linux-top us-top">
-												<h4>Standard</h4>
-												</div>
-												<div class="linux-bottom us-bottom">
-													<h5>$259 <span class="month">per month</span></h5>
-													<h6>Single Domain</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/us.png"></li>
-													</ul>
-												</div>
-												<a href="#" class="us-button">buy now</a>
-											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top us-top">
-												<h4>Advanced</h4>
-												</div>
-												<div class="linux-bottom us-bottom">
-													<h5>$359 <span class="month">per month</span></h5>
-													<h6>2 Domains</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/us.png"></li>
-													</ul>
-												</div>
-												<a href="#" class="us-button" id='buynow3'>buy now</a>
-											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top us-top">
-												<h4>Business</h4>
-												</div>
-												<div class="linux-bottom us-bottom">
-													<h5>$539 <span class="month">per month</span></h5>
-													<h6>3 Domains</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/us.png"></li>
-													</ul>
-												</div>
-												<a href="#" class="us-button" id='buynow2'>buy now</a>
-											</div>
-											<div class="col-md-3 linux-price">
-												<div class="linux-top us-top">
-												<h4>Pro</h4>
-												</div>
-												<div class="linux-bottom us-bottom">
-													<h5>$639 <span class="month">per month</span></h5>
-													<h6>Unlimited Domains</h6>
-													<ul>
-													<li><strong>Unlimited</strong> Disk Space</li>
-													<li><strong>Unlimited</strong> Data Transfer</li>
-													<li><strong>Unlimited</strong> Email Accounts</li>
-													<li><strong>Includes </strong>  Global CDN</li>
-													<li><strong>High Performance</strong>  Servers</li>
-													<li><strong>location</strong> : <img src="images/us.png"></li>
-													</ul>
-												</div>
-												<a href="#" id="" class="us-button">buy now</a>
-											</div>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+							 </div>
+							 </div>
+							 </div>
 					<!-- clients -->
 				<div class="clients">
 					<div class="container">
@@ -282,6 +175,8 @@
         $('#my-modal').modal({
         show: 'false'
 	});
+	
+    
 	</script>
 			
 </body>

@@ -60,7 +60,7 @@ class product
 
             ); 
         
-         return $encode=json_encode($datae); 
+          $encode=json_encode($datae); 
             $sql3="INSERT INTO `tbl_product_description`( `prod_id`, `description`, `mon_price`, `annual_price`, `sku`)
              VALUES (1,'$encode','$enterMonthly','$enterAnnual','$sku')";
 

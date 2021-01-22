@@ -11,6 +11,12 @@ if(isset($_POST['login']))
 $loginobj=new user();
 $loginobj->login($email,$password);
 
+ if($loginobj=='admin')
+ {
+	 header("location:admin/index.php");
+	 
+ }
+
 }
 ?> 
 	
@@ -39,7 +45,7 @@ $loginobj->login($email,$password);
 										<input type="password" name="password"> 
 									  </div>
 									  <a class="forgot" href="#">Forgot Your Password?</a>
-									  <input type="submit" value="Login" name='login'>
+									  <input type="submit" value="Login" name='login' >
 									</form>
 								</div>	
 								<div class="clearfix"> </div>
